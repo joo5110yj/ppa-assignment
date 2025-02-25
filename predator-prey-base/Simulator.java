@@ -14,8 +14,11 @@ import javafx.scene.paint.Color;
 
 public class Simulator {
 
-    private static final double FOX_CREATION_PROBABILITY = 0.02;
-    private static final double RABBIT_CREATION_PROBABILITY = 0.08;    
+    private static final double LION_CREATION_PROBABILITY = 0.1;
+    private static final double HYENA_CREATION_PROBABILITY = 0.2;
+    private static final double GIRAFFE_CREATION_PROBABILITY = 0.2;
+    private static final double ANTELOPE_CREATION_PROBABILITY = 0.3;
+    private static final double ZEBRA_CREATION_PROBABILITY = 0.3;    
 
     private List<Animal> animals;
     private Field field;
@@ -41,13 +44,16 @@ public class Simulator {
      */
     public void simulateOneStep() {
         step++;
-        List<Animal> newAnimals = new ArrayList<>();        
-
+        List<Animal> newAnimals = new ArrayList<>();    
+        
         for(Iterator<Animal> it = animals.iterator(); it.hasNext(); ) {
             Animal animal = it.next();
             animal.act(newAnimals);
-            if(! animal.isAlive()) {
+            if(! animal.isAlive()) {      
+                // Location animalLocation = animal.getLocation();
+                // Plant plant = new Plant(field, animalLocation, Color.GREEN);
                 it.remove();
+                // animals.add(plant);
             }
         }
                
@@ -73,17 +79,36 @@ public class Simulator {
         
         for(int row = 0; row < field.getDepth(); row++) {
             for(int col = 0; col < field.getWidth(); col++) {
-                if(rand.nextDouble() <= FOX_CREATION_PROBABILITY) {
+                if(rand.nextDouble() <= LION_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
-                    Fox fox = new Fox(true, field, location, Color.BROWN);
-                    animals.add(fox);
+                    Lion lion = new Lion(true, field, location, Color.ORANGE);
+                    animals.add(lion);
                 }
-                else if(rand.nextDouble() <= RABBIT_CREATION_PROBABILITY) {
+                else if(rand.nextDouble() <= ZEBRA_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
-                    Rabbit rabbit = new Rabbit(true, field, location, Color.GREY);
-                    animals.add(rabbit);
+                    Zebra zebra = new Zebra(true, field, location, Color.BLACK);
+                    animals.add(zebra);
                 }
-                // else leave the location empty.
+                else if(rand.nextDouble() <= ANTELOPE_CREATION_PROBABILITY) {
+                    Location location = new Location(row, col);
+                    Antelope antelope = new Antelope(true, field, location, Color.BROWN);
+                    animals.add(antelope);
+                }
+                else if(rand.nextDouble() <= HYENA_CREATION_PROBABILITY) {
+                    Location location = new Location(row, col);
+                    Hyena hyena = new Hyena(true, field, location, Color.GREY);
+                    animals.add(hyena);
+                }
+                else if(rand.nextDouble() <= GIRAFFE_CREATION_PROBABILITY) {
+                    Location location = new Location(row, col);
+                    Giraffe giraffe = new Giraffe(true, field, location, Color.YELLOW);
+                    animals.add(giraffe);
+                }
+                else {
+                    Location location = new Location(row, col);
+                    Plant plant = new Plant(field, location, Color.GREEN);
+                    animals.add(plant);
+                }
             }
         }
     }

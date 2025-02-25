@@ -15,7 +15,7 @@ public class Field {
     private static final Random rand = Randomizer.getRandom();
     private int depth, width;
     private Animal[][] field;
-
+    
     /**
      * Represent a field of the given dimensions.
      * @param depth The depth of the field.
