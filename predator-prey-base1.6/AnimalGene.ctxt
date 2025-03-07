@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=AnimalGene
+comment0.text=\n\ The\ genes\ control\ the\ life\ cycle\ of\ the\ animals.\n\ Each\ animal\ has\ a\ 14-digit\ gene\ string\ that\ determines\ the\ life\ cycle\ and\ metabolism.\ \n\ The\ first\ population\ has\ randomly\ assinged\ genes,\ but\ future\ generations\ inherit\ genes\ from\ parents.\ \n\ \n\n\ @author\ Takumi\ Satoh\ and\ Jooyoung\ Jung\ \n\ @version\ 2025.03.07\n
+comment1.params=gene
+comment1.target=AnimalGene(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getGene()
+comment3.params=parent1\ parent2
+comment3.target=java.lang.String\ inheritGeneString(AnimalGene,\ AnimalGene)
+comment3.text=\n\ Inherit\ genes\ from\ two\ parents\ using\ crossover\ and\ mutation.\n
+comment4.params=
+comment4.target=int\ getBreedingAge()
+comment5.params=
+comment5.target=int\ getLifeSpan()
+comment6.params=
+comment6.target=double\ getBreedingProbability()
+comment7.params=
+comment7.target=int\ getLitterSize()
+comment8.params=
+comment8.target=double\ getDiseaseProbability()
+comment9.params=
+comment9.target=double\ getMetabolism()
+numComments=10
